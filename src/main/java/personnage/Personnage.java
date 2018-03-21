@@ -1,104 +1,98 @@
 package personnage;
 import java.util.Scanner;
 
+
 public class Personnage {
-
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Type de personnage : guerrier ou magicien");
-		System.out.println("Veuiller choisir un type de personnage :");
-		String choix = sc.nextLine();
-		System.out.println("type du personnage: " + choix);
-
-		while(!choix.equals("guerrier") && !choix.equals("magicien")) {
-			System.out.println("Veuiller choisir un type de personnage :");
-			choix=sc.nextLine();
-			System.out.println("type du personnage: " + choix);	
+	Scanner sc = new Scanner(System.in);
+	String nom;
+	String image;
+	int niveau_de_vie;
+	int force_attaque;
+	
+	public void creation() {
+		
+		System.out.println("Veuiller donner un nom au personnage :");
+		nom = sc.nextLine();
+		while(nom.equals("")) {
+			System.out.println("Veuiller donner un nom au personnage :");
+			nom=sc.nextLine();		
 		}
-		if(choix.equals("guerrier")) {
-			Guerrier guerrier1 = new Guerrier();
-			guerrier1.creation();
-			System.out.println("Le personnage est créé que voulez-vous faire?:" +
-				"\nafficher : afficher un personnage" +
-				"\nmodifier : modifier un personnage" +
-				"\nattaquer: voulez-vous attaquer" +
-				"\najouter : ajouter une arme");
-			String faire = sc.nextLine();
-           
-			if(faire.equals("afficher")) {
-             System.out.println(guerrier1);
-			} 
-		    else if(faire.equals("modifier")) {
-			System.out.println("Veuiller modifier le nom du personnage :"+ guerrier1.getNom());
-			guerrier1.setNom(sc.nextLine());
-            
-			System.out.println("Veuiller modifier l'image du personnage :" + guerrier1.getImage());
-			guerrier1.setImage(sc.nextLine());
-
-			System.out.println("Veuiller modifier le niveau_de_vie du personnage :" + guerrier1.getVie());
-			guerrier1.setVie(sc.nextInt());
-
-			System.out.println("Veuiller modifier la force d'attaque :" + guerrier1.getForce());
-			guerrier1.setForce(sc.nextInt());
-
-			sc.nextLine();
-
-			System.out.println("Veuiller modifier votre arme :" + guerrier1.getArme());
-			guerrier1.setArme(sc.nextLine());
-
-
-			System.out.println("Veuiller modifier la valeur du bouclier :" + guerrier1.getBouclier());
-			guerrier1.setBouclier(sc.nextInt());
-            System.out.println(guerrier1);
-
-		 }
-		 else if(faire.equals("attaquer")) {
-		 	guerrier1.attaque();
-		 	System.out.println(guerrier1);
-		 }
-
-		}else {
-			Magicien magicien1 = new Magicien();
-			magicien1.creation();
-
-			System.out.println("Le personnage est créé que voulez-vous faire?:" +
-				"\nafficher : afficher un personnage" +
-				"\nmodifier : modifier un personnage" +
-				"\nattaquer: voulez-vous attaquer" +
-				"\najouter : ajouter un sort");
-			String faire = sc.nextLine();
-
-			if(faire.equals("afficher")) {
-             System.out.println(magicien1);
-			}
-			else if(faire.equals("modifier")) {
-			System.out.println("Veuiller modifier le nom du personnage :" + magicien1.getNom());
-			magicien1.setNom(sc.nextLine());
-
-			System.out.println("Veuiller modifier l'image du personnage :" + magicien1.getImage());
-			magicien1.setImage(sc.nextLine());
-
-			System.out.println("Veuiller modifier le niveau_de_vie du personnage :" + magicien1.getVie());
-			magicien1.setVie(sc.nextInt());
-
-			System.out.println("Veuiller modifier la force d'attaque :" + magicien1.getForce());
-			magicien1.setForce(sc.nextInt());
-
-			sc.nextLine();
-
-			System.out.println("Veuiller modifier votre sort :" + magicien1.getSort());
-			magicien1.setSort(sc.nextLine());
-
-			System.out.println("Veuiller modifier la valeur du philtre :" + magicien1.getPhiltre());
-			magicien1.setPhiltre(sc.nextInt());
-            System.out.println(magicien1);
-
-		 }
-
+		
+		System.out.println("Veuiller donner une image au personnage :");
+		image = sc.nextLine();
+		while(image.equals("")) {
+			System.out.println("Veuiller donner une image au personnage :");
+			image=sc.nextLine();		
 		}
 
+		System.out.println("Veuiller donner un niveau_de_vie du personnage entre 0 et 100 :");
+		niveau_de_vie = sc.nextInt();
+		while(niveau_de_vie<0 || niveau_de_vie >100) {
+			System.out.println("Veuiller donner un niveau_de_vie du personnage entre 0 et 100 :");
+			niveau_de_vie =sc.nextInt();
+		}
+
+		System.out.println("Veuiller donner une force attaque entre 0 et 100 :");
+		force_attaque = sc.nextInt();
+		while(force_attaque <0 || force_attaque>100 ) {
+			System.out.println("Veuiller donner une force attaque entre 0 et 100 :");
+			force_attaque =sc.nextInt();
+		}
+	}
+
+	public String getNom() {
+		return nom;
+	} 
+
+	public String getImage() {
+		return image;
+	} 
+
+	public int getVie() {
+		return niveau_de_vie;
+	} 
+
+	public int getForce() {
+		return force_attaque;
+	} 
+
+	
+	public void setNom(String nom2) {
+		if(nom2.equals("")) {
+			nom2=nom;
+		}
+		nom = nom2;
+	} 
+
+	public void setImage(String image2) {
+		if(image2.equals("")) {
+			image2=image;
+		}
+		image = image2;
+	} 
+
+	public void setVie(int vie) {
+		while(vie <0 || vie>100) {
+			System.out.println("Veuiller modifier le niveau_de_vie du personnage entre 0 et 100 :" + getVie());
+			vie =sc.nextInt();
+		}
+		niveau_de_vie = vie;
+	} 
+
+	public void setForce(int force ) {
+		while(force <0 || force>100) {
+			System.out.println("Veuiller modifier la force d'attaque entre 0 et 100 :" + getForce());
+			force =sc.nextInt();
+		}
+		force_attaque = force;
+	} 
+
+	public void attaque() {
+		int niveau_attaque;
+		System.out.println("Veuiller attaquer avec un niveau d'attaque choisi : maximum" + force_attaque);
+		niveau_attaque = sc.nextInt();
+		force_attaque = (force_attaque - niveau_attaque);
+		System.out.println("Il vous reste" + force_attaque + "force attaque");
 	}
 	
-			
-
 }

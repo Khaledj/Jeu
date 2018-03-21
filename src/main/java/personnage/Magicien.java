@@ -4,112 +4,55 @@ import java.util.Scanner;
 
 public class Magicien extends Personnage {
 	Scanner sc = new Scanner(System.in);
-	String nom;
-	String image;
-	int niveau_de_vie;
-	int force_attaque;
 	String sort;
 	int philtre;
-    
-		public void creation() {
-	
-			System.out.println("Veuiller donner un nom au personnage :");
-			nom = sc.nextLine();
-			while(nom.equals("")) {
-			System.out.println("Veuiller donner un nom au personnage :");
-			nom=sc.nextLine();		
-			}
 
-			System.out.println("Veuiller donner une image au personnage :");
-			image = sc.nextLine();
-			while(image.equals("")) {
-			System.out.println("Veuiller donner une image au personnage :");
-			image=sc.nextLine();		
-			}
+	public void equipement() {
 
-			System.out.println("Veuiller donner un niveau_de_vie du personnage :");
-			niveau_de_vie = sc.nextInt();
-			while(niveau_de_vie<0 || niveau_de_vie >100) {
-			System.out.println("Veuiller donner un niveau_de_vie du personnage :");
-			niveau_de_vie =sc.nextInt();
-			}
-
-			System.out.println("Veuiller donner une force attaque :");
-			force_attaque = sc.nextInt();
-			while(force_attaque <0 || force_attaque>100 ) {
-			System.out.println("Veuiller donner une force attaque :");
-			force_attaque =sc.nextInt();
-			}
-
-			sc.nextLine();
-
-			System.out.println("Veuiller ecrire un sort :");
-			sort = sc.nextLine();
-			while(sort.equals("")) {
+		System.out.println("Veuiller ecrire un sort :");
+		sort = sc.nextLine();
+		while(sort.equals("")) {
 			System.out.println("Veuiller écrire un sort :");
 			sort=sc.nextLine();		
-			}
-
-			System.out.println("Veuiller donner une valeur au philtre :");
-			philtre = sc.nextInt();
-			 while(philtre <0 || philtre >100) {
-			System.out.println("Veuiller donner une valeur au philtre :");
-			philtre=sc.nextInt();
-			}
 		}
 
-		public String toString() {
+		System.out.println("Veuiller donner une valeur au philtre entre 0 et 100 :");
+		philtre = sc.nextInt();
+		while(philtre <0 || philtre >100) {
+			System.out.println("Veuiller donner une valeur au philtre entre 0 et 100 :");
+			philtre=sc.nextInt();
+		}
+	}
+
+	public String toString() {
 		return "Nom: " + nom + "\nImage: " + image + "\nniveau_de_vie: " + niveau_de_vie 
 		+ "\nforce_attaque: " + force_attaque + "\nsort: " + sort
 		+ "\nphiltre: " + philtre;
 	}
-	public String getNom() {
-        return nom;
-	} 
-
-	public String getImage() {
-         return image;
-	} 
-
-	public int getVie() {
-         return niveau_de_vie;
-	} 
-
-	public int getForce() {
-         return force_attaque;
-	} 
 
 	public String getSort() {
-         return sort;
+		return sort;
 	} 
 
 	public int getPhiltre() {
-         return philtre;
-	} 
-
-
-    public void setNom(String nom2) {
-         nom = nom2;
-	} 
-
-	public void setImage(String image2) {
-         image = image2;
-	} 
-
-	public void setVie(int vie) {
-         niveau_de_vie = vie;
-	} 
-
-	public void setForce(int force ) {
-         force_attaque = force;
+		return philtre;
 	} 
 
 	public void setSort(String sort2) {
-         sort = sort2;
+		if(sort2.equals("")) {
+			sort2=sort;
+		}
+		sort = sort2;
 	} 
 
 	public void setPhiltre(int philtre2) {
-         philtre = philtre2;
+		while(philtre2 <0 || philtre2>100) {
+			System.out.println("Veuiller modifier la valeur du philtre entre 0 et 100 :" + getPhiltre());
+			philtre2 =sc.nextInt();
+		}
+		philtre = philtre2;
 	} 
 
-	}
+
+
+}
