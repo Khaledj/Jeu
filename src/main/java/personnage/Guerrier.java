@@ -63,6 +63,29 @@ public class Guerrier extends Personnage {
 		+ "\nforce_attaque: " + force_attaque + "\narme: " + arme
 		+ "\nbouclier: " + bouclier;
 	}
+    public String getNom() {
+        return nom;
+	} 
+
+	public String getImage() {
+         return image;
+	} 
+
+	public int getVie() {
+         return niveau_de_vie;
+	} 
+
+	public int getForce() {
+         return force_attaque;
+	} 
+
+	public String getArme() {
+         return arme;
+	} 
+
+	public int getBouclier() {
+         return bouclier;
+	} 
 
 	public void setNom(String nom2) {
          nom = nom2;
@@ -87,5 +110,13 @@ public class Guerrier extends Personnage {
 	public void setBouclier(int bouclier2) {
          bouclier = bouclier2;
 	} 
+
+	public void attaque() {
+		int niveau_attaque;
+		System.out.println("Veuiller attaquer avec un niveau d'attaque choisi : maximum" + force_attaque);
+		niveau_attaque = sc.nextInt();
+		force_attaque = (force_attaque - niveau_attaque);
+        System.out.println("Il vous reste" + force_attaque + "force attaque");
+	}
 
 }

@@ -63,6 +63,31 @@ public class Magicien extends Personnage {
 		+ "\nforce_attaque: " + force_attaque + "\nsort: " + sort
 		+ "\nphiltre: " + philtre;
 	}
+	public String getNom() {
+        return nom;
+	} 
+
+	public String getImage() {
+         return image;
+	} 
+
+	public int getVie() {
+         return niveau_de_vie;
+	} 
+
+	public int getForce() {
+         return force_attaque;
+	} 
+
+	public String getSort() {
+         return sort;
+	} 
+
+	public int getPhiltre() {
+         return philtre;
+	} 
+
+
     public void setNom(String nom2) {
          nom = nom2;
 	} 
