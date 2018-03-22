@@ -1,7 +1,6 @@
 package personnage;
 import java.util.Scanner;
 
-
 public class Personnage {
 	Scanner sc = new Scanner(System.in);
 	String nom;
@@ -10,7 +9,6 @@ public class Personnage {
 	int force_attaque;
 	
 	public void creation() {
-		
 		System.out.println("Veuiller donner un nom au personnage :");
 		nom = sc.nextLine();
 		while(nom.equals("")) {
@@ -56,7 +54,6 @@ public class Personnage {
 		return force_attaque;
 	} 
 
-	
 	public void setNom(String nom2) {
 		if(nom2.equals("")) {
 			nom2=nom;
@@ -94,5 +91,4 @@ public class Personnage {
 		force_attaque = (force_attaque - niveau_attaque);
 		System.out.println("Il vous reste" + force_attaque + "force attaque");
 	}
-	
 }
