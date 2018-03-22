@@ -26,8 +26,7 @@ public class Jeu {
 			System.out.println("Le personnage est créé que voulez-vous faire?:" +
 				"\nafficher : afficher un personnage" +
 				"\nmodifier : modifier un personnage" +
-				"\nattaquer: voulez-vous attaquer" +
-				"\najouter : ajouter une arme");
+				"\nattaquer: lancer une attaque" );
 			String faire = sc.nextLine();
 
 			if(faire.equals("afficher")) {
@@ -68,8 +67,19 @@ public class Jeu {
 						sc.nextLine();
 
 					}else if(modifier.equals("arme")){
-						System.out.println("Veuiller modifier l'arme :" + guerrier1.getArme());
-						guerrier1.setArme(sc.nextLine());
+						 int armechoisi;
+
+					     System.out.println("Quel arme voulez-vous modifier?");
+						 guerrier1.affichearme();
+                         armechoisi = Integer.parseInt(sc.nextLine());
+
+                         System.out.println("Veuiller modifier l'arme" + armechoisi);
+
+                         String armemodif;
+                         armemodif = sc.nextLine();
+                         guerrier1.arme.set(armechoisi, armemodif);
+						 
+						
 
 					}else if(modifier.equals("bouclier")){
 						System.out.println("Veuiller modifier la valeur du bouclier entre 0 et 100 :" + guerrier1.getBouclier());
@@ -82,7 +92,7 @@ public class Jeu {
 			}else if(faire.equals("attaquer")) {
 				guerrier1.attaque();
 			}
-
+				
 		}else {
 			Magicien magicien1 = new Magicien();
 			magicien1.creation();
@@ -109,9 +119,10 @@ public class Jeu {
 						"\nvie: vie du personnage " +
 						"\nforce : force du personnage" +
 						"\nsort : sort du personnage" +
-						"\nphiltre : philtre du personnage");
+						"\nphiltre : philtre du personnage"+
+						"\nsortir : sortir des modifications");
 
-					 modifier = sc.nextLine();
+					modifier = sc.nextLine();
 
 					if(modifier.equals("nom")) {
 						System.out.println("Veuiller modifier le nom du personnage :" + magicien1.getNom());
@@ -130,8 +141,20 @@ public class Jeu {
 						magicien1.setForce(sc.nextInt());
 						sc.nextLine();
 					}else if(modifier.equals("sort")){
-						System.out.println("Veuiller modifier votre sort :" + magicien1.getSort());
-						magicien1.setSort(sc.nextLine());
+						 int sortchoisi;
+
+					     System.out.println("Quel sort voulez-vous modifier?");
+						 magicien1.affichesort();
+                         sortchoisi = Integer.parseInt(sc.nextLine());
+
+                         System.out.println("Veuiller modifier le sort" + sortchoisi);
+
+                         String sortmodif;
+                         sortmodif = sc.nextLine();
+                         magicien1.sort.set(sortchoisi, sortmodif);
+						 
+						
+						
 					}else if(modifier.equals("philtre")){
 						System.out.println("Veuiller modifier la valeur du philtre entre 0 et 100 :" + magicien1.getPhiltre());
 						magicien1.setPhiltre(sc.nextInt());

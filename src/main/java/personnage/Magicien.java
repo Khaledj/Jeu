@@ -1,20 +1,24 @@
 package personnage;
 import java.util.Scanner;
+import java.util.*;
 
 
 public class Magicien extends Personnage {
 	Scanner sc = new Scanner(System.in);
-	String sort;
+	ArrayList<String> sort = new ArrayList<String>();
 	int philtre;
 
 	public void equipement() {
 
-		System.out.println("Veuiller ecrire un sort :");
-		sort = sc.nextLine();
-		while(sort.equals("")) {
-			System.out.println("Veuiller écrire un sort :");
-			sort=sc.nextLine();		
-		}
+		System.out.println("Veuiller écrire un sort :");
+		String newSort = sc.nextLine();
+		sort.add(newSort);
+		 while(newSort.equals("")) {
+		 	System.out.println("Veuiller écrire un sort :");
+		 	newSort = sc.nextLine();
+		 	sort.add(newSort);		
+		 }
+		ajoutsort();
 
 		System.out.println("Veuiller donner une valeur au philtre entre 0 et 100 :");
 		philtre = sc.nextInt();
@@ -29,21 +33,20 @@ public class Magicien extends Personnage {
 		+ "\nforce_attaque: " + force_attaque + "\nsort: " + sort
 		+ "\nphiltre: " + philtre;
 	}
+    
+     public void affichesort() {
 
-	public String getSort() {
-		return sort;
-	} 
+	   	for(int i=0; i<sort.size();i++){
+	   		System.out.println(sort.get(i)+ "  -  "+ i);
+	   	}	
+	   }
+	
 
 	public int getPhiltre() {
 		return philtre;
 	} 
 
-	public void setSort(String sort2) {
-		if(sort2.equals("")) {
-			sort2=sort;
-		}
-		sort = sort2;
-	} 
+	
 
 	public void setPhiltre(int philtre2) {
 		while(philtre2 <0 || philtre2>100) {
@@ -52,7 +55,21 @@ public class Magicien extends Personnage {
 		}
 		philtre = philtre2;
 	} 
-
-
-
+    
+    public void ajoutsort() {
+     	    String validation;
+    	    System.out.println("Ajouter un sort :" + "\noui" + "\nnon");
+			validation = sc.nextLine();
+    		
+			 while(validation.equals("oui")) {
+               System.out.println("Veuiller écrire un sort :");
+               String newSort = sc.nextLine();
+			   sort.add(newSort);
+			   System.out.println("Ajouter un sort :" + "\noui" + "\nnon");
+			   validation = sc.nextLine();
+            }
+			
+           
+    }	
+ 
 }
