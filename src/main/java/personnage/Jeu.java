@@ -70,7 +70,11 @@ public class Jeu {
 
 		if(choix.equals("guerrier")) {
 			Guerrier guerrier = new Guerrier();
-			guerrier.creation();
+			try {
+				guerrier.creation();
+			}catch(ChampVideException e) {
+				guerrier.setNom("John Doe");
+			}
 			guerrier.equipement();
 			personnage.add(guerrier);
 			//ajoute au tableau
@@ -78,7 +82,11 @@ public class Jeu {
 			//nbperso++;
 		}else {
 			Magicien magicien = new Magicien();
-			magicien.creation();
+			try {
+				magicien.creation();
+			}catch(ChampVideException e) {
+				magicien.setNom("John Doe");
+			}
 			magicien.equipement();
 			personnage.add(magicien);
 			//ajoute au tableau

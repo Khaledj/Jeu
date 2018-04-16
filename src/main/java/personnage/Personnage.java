@@ -138,19 +138,24 @@ public abstract class Personnage {
 	/**
 	 * Creation.
 	 */
-	public void creation() {
+	public void creation() throws ChampVideException  {
+
 		System.out.println("Veuiller donner un nom au personnage :");
 		nom = sc.nextLine();
+			while (nom.equals("")) {
+				throw new ChampVideException();
+			}
+
 		while(nom.equals("")) {
 			System.out.println("Veuiller donner un nom au personnage :");
-			nom=sc.nextLine();		
+			nom=sc.nextLine();
 		}
-		
+
 		System.out.println("Veuiller donner une image au personnage :");
 		image = sc.nextLine();
 		while(image.equals("")) {
 			System.out.println("Veuiller donner une image au personnage :");
-			image=sc.nextLine();		
+			image=sc.nextLine();
 		}
 
 		System.out.println("Veuiller donner un niveau_de_vie du personnage entre 0 et 100 :");
@@ -166,7 +171,9 @@ public abstract class Personnage {
 			System.out.println("Veuiller donner une force attaque entre 0 et 100 :");
 			force_attaque =sc.nextInt();
 		}
-	}
+			}
+		}
 
 
-}
+
+
