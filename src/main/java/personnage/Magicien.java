@@ -2,10 +2,97 @@ package personnage;
 import java.util.Scanner;
 import java.util.*;
 
+/**
+ * The type Magicien.
+ */
 public class Magicien extends Personnage {
+	/**
+	 * The Sc.
+	 */
 	Scanner sc = new Scanner(System.in);
-	ArrayList<String> sort = new ArrayList<String>();
-	int philtre;
+	private ArrayList<String> sort = new ArrayList<String>();
+	private int philtre;
+
+	/**
+	 * Gets sc.
+	 *
+	 * @return the sc
+	 */
+	public Scanner getSc() {
+		return sc;
+	}
+
+	/**
+	 * Sets sc.
+	 *
+	 * @param sc the sc
+	 */
+	public void setSc(Scanner sc) {
+		this.sc = sc;
+	}
+
+	/**
+	 * Gets sort.
+	 *
+	 * @return the sort
+	 */
+	public ArrayList<String> getSort() {
+		return sort;
+	}
+
+	/**
+	 * Sets sort.
+	 *
+	 * @param sort the sort
+	 */
+	public void setSort(ArrayList<String> sort) {
+		this.sort = sort;
+	}
+
+	public void afficheEquipement() {
+		for(int i=0; i<sort.size();i++){
+			System.out.println(sort.get(i)+ "  -  "+ i);
+		}
+	}
+
+	/**
+	 * Gets philtre.
+	 *
+	 * @return the philtre
+	 */
+	public int getPhiltre() {
+		return philtre;
+	}
+
+	/**
+	 * Sets philtre.
+	 *
+	 * @param philtre2 the philtre 2
+	 */
+	public void setPhiltre(int philtre2) {
+		while(philtre2 <0 || philtre2>100) {
+			System.out.println("Veuiller modifier la valeur du philtre entre 0 et 100 :" + getPhiltre());
+			philtre2 =sc.nextInt();
+		}
+		philtre = philtre2;
+	}
+
+	/**
+	 * Ajoutsort.
+	 */
+	public void ajoutsort() {
+		String validation;
+		System.out.println("Ajouter un sort :" + "\noui" + "\nnon");
+		validation = sc.nextLine();
+
+		while(validation.equals("oui")) {
+			System.out.println("Veuiller écrire un sort :");
+			String newSort = sc.nextLine();
+			sort.add(newSort);
+			System.out.println("Ajouter un sort :" + "\noui" + "\nnon");
+			validation = sc.nextLine();
+		}
+	}
 
 	public void equipement() {
 		System.out.println("Veuiller écrire un sort :");
@@ -31,35 +118,5 @@ public class Magicien extends Personnage {
 		+ "\nphiltre: " + philtre;
 	}
 
-	public void affichesort() {
-		for(int i=0; i<sort.size();i++){
-			System.out.println(sort.get(i)+ "  -  "+ i);
-		}	
-	}
-	
-	public int getPhiltre() {
-		return philtre;
-	} 
 
-	public void setPhiltre(int philtre2) {
-		while(philtre2 <0 || philtre2>100) {
-			System.out.println("Veuiller modifier la valeur du philtre entre 0 et 100 :" + getPhiltre());
-			philtre2 =sc.nextInt();
-		}
-		philtre = philtre2;
-	} 
-
-	public void ajoutsort() {
-		String validation;
-		System.out.println("Ajouter un sort :" + "\noui" + "\nnon");
-		validation = sc.nextLine();
-
-		while(validation.equals("oui")) {
-			System.out.println("Veuiller écrire un sort :");
-			String newSort = sc.nextLine();
-			sort.add(newSort);
-			System.out.println("Ajouter un sort :" + "\noui" + "\nnon");
-			validation = sc.nextLine();
-		}
-	}	
 }
