@@ -12,12 +12,17 @@ public class Magicien extends Personnage {
 	Scanner sc = new Scanner(System.in);
 	private ArrayList<String> sort = new ArrayList<String>();
 	private int philtre;
+	private String newSort;
 
-	/**
-	 * Gets sc.
-	 *
-	 * @return the sc
-	 */
+	public String getNewSort() {
+		return newSort;
+	}
+
+		/**
+         * Gets sc.
+         *
+         * @return the sc
+         */
 	public Scanner getSc() {
 		return sc;
 	}
@@ -96,7 +101,7 @@ public class Magicien extends Personnage {
 
 	public void equipement() {
 		System.out.println("Veuiller écrire un sort :");
-		String newSort = sc.nextLine();
+		 newSort = sc.nextLine();
 		sort.add(newSort);
 		while(newSort.equals("")) {
 			System.out.println("Veuiller écrire un sort :");

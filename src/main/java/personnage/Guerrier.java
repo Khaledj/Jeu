@@ -9,6 +9,12 @@ public class Guerrier extends Personnage {
 	private Scanner sc = new Scanner(System.in);
 	private ArrayList<String> arme = new ArrayList<String>();
 
+	public String getNewArme() {
+		return newArme;
+	}
+
+	private String newArme;
+
 	/**
 	 * Gets sc.
 	 *
@@ -45,7 +51,7 @@ public class Guerrier extends Personnage {
 		this.arme = arme;
 	}
 
-	/**
+	 /**
 	 * The Bouclier.
 	 */
 	int bouclier;
@@ -97,7 +103,7 @@ public class Guerrier extends Personnage {
 
 	public void equipement() {
 		System.out.println("Veuiller écrire une arme :");
-		String newArme = sc.nextLine();
+		 newArme = sc.nextLine();
 		arme.add(newArme);
 		while(newArme.equals("")) {
 			System.out.println("Veuiller écrire une arme :");
